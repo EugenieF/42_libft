@@ -6,7 +6,7 @@
 /*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:26:46 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/20 14:26:47 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/05/21 11:49:39 by efrancon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_memset(void *str, int c, size_t len)
 
 	i = 0;
 	tmp = (unsigned char *)str;
-	if (!str)
-		return (NULL);
 	while (i < len)
 	{
 		tmp[i] = (unsigned char)c;

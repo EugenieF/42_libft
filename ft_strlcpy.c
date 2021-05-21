@@ -6,7 +6,7 @@
 /*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:29:49 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/20 14:29:50 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/05/21 12:13:03 by efrancon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dst_size)
 	size_t	i;
 	size_t	src_size;
 
+	if (!dest && !src)
+		return (0);
 	i = 0;
 	src_size = 0;
 	while (src[src_size])

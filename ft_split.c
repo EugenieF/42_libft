@@ -6,13 +6,13 @@
 /*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:28:58 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/20 14:29:00 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/05/21 19:11:46 by efrancon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	nb_words(char const *s, char c)
+static int  nb_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,14 +31,24 @@ static int	nb_words(char const *s, char c)
 	return (count);
 }
 
-void	ft_get_memory(char const *s, char c, char **strs, int i)
+static int  get_memory_string(char const *s, char c, char **strs, int i)
 {
 	int	j;
+	int	size;
 
 	j = 0;
+	size = 0;
 	while (s[j] && s[j] != c)
 		j++;
 	strs[i] = (char *)malloc(sizeof(char) * (j + 1));
+	if (!strs[i])
+	{
+		while (size < i)
+			free(strs[size++]);
+		free(strs);
+		return (0);
+	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -48,6 +58,8 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	char	**strs;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	len = nb_words(s, c);
 	strs = (char **)malloc(sizeof(char *) * (len + 1));
@@ -57,8 +69,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s && *s == c)
 			s++;
-		ft_get_memory(s, c, strs, i);
-		if (!strs[i])
+		if (!get_memory_string(s, c, strs, i))
 			return (NULL);
 		j = 0;
 		while (*s && *s != c)

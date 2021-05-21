@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: efrancon <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/05/21 09:25:34 by efrancon          #+#    #+#              #
+#    Updated: 2021/05/21 10:35:08 by efrancon         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= libft.a
 
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
@@ -18,30 +30,28 @@ BONUS_OBJS	= ${BONUS:.c=.o}
 
 CC			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror
 
-INCL		= libft.h
+INCLUDE		= libft.h
 
 RM			= rm -f
 
 
 .c.o:
-			${CC} ${CFLAGS} -I ${INCL} -c $< -o ${<:.c=.o}
+				@echo "Compiling: $@"
+				@${CC} ${CFLAGS} -I${INCLUDE} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-				ar rc ${NAME} ${OBJS}
-				ranlib ${NAME}
+				@echo "Linking: $@"
+				@ar rc ${NAME} ${OBJS}
+				@ranlib ${NAME}
 
 all:		${NAME}
 
 bonus:		${OBJS} ${BONUS_OBJS}
-				ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
-				ranlib ${NAME}
-
-test:		all
-				@echo "Test"
-				@${MAKE} -C test run
-
+				@echo "Bonus compiling: $@"
+				@ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
+				@ranlib ${NAME}
 clean:
 				@echo "Removing objects"
 				@${RM} ${OBJS} ${BONUS_OBJS}
@@ -50,6 +60,6 @@ fclean:		clean
 				@echo "Removing ${NAME}"
 				@${RM} ${NAME}
 
-re:		fclean all
+re:			fclean all
 
 .PHONY:		all bonus clean fclean re
