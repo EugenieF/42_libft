@@ -18,15 +18,13 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c \
 			ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
 			ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
-			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			ft_isspace.c ft_sort_int_tab.c ft_atoi_with_pointer.c clean_free.c \
+			ft_lstnew.c  ft_lstsize.c ft_lstlast.c ft_lstdelone.c ft_lstclear.c \
+			ft_lstadd_front.c ft_lstadd_back.c ft_lstiter.c ft_lstmap.c \
+			get_next_line.c
 
 OBJS		= ${SRCS:.c=.o}
-
-BONUS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-			ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-			ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
-BONUS_OBJS	= ${BONUS:.c=.o}
 
 CC			= gcc
 
@@ -38,26 +36,21 @@ RM			= rm -f
 
 
 .c.o:
-				@echo "Compiling: $@"
 				@${CC} ${CFLAGS} -I${INCLUDE} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-				@echo "Linking: $@"
+				@echo "Libft -> linking : $@"
 				@ar rc ${NAME} ${OBJS}
 				@ranlib ${NAME}
 
 all:		${NAME}
 
-bonus:		${OBJS} ${BONUS_OBJS}
-				@echo "Bonus compiling: $@"
-				@ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
-				@ranlib ${NAME}
 clean:
-				@echo "Removing objects"
-				@${RM} ${OBJS} ${BONUS_OBJS}
+				@echo "Libft -> removing objects"
+				@${RM} ${OBJS}
 
 fclean:		clean
-				@echo "Removing ${NAME}"
+				@echo "Libft -> removing ${NAME}"
 				@${RM} ${NAME}
 
 re:			fclean all

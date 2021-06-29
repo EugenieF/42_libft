@@ -16,11 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef int  t_bool;
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}		t_list;
+}				t_list;
 
 void		*ft_memset(void *str, int c, size_t len);
 void		ft_bzero(void *str, size_t n);
@@ -35,6 +37,7 @@ int			ft_isdigit(int c);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
+int			ft_isspace(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 char		*ft_strchr(const char *str, int c);
@@ -44,6 +47,7 @@ size_t		ft_strlcpy(char *dest, const char *src, size_t dst_size);
 size_t		ft_strlcat(char *dest, const char *src, size_t dst_size);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
+long    	ft_atoi_with_pointer(char **str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -65,5 +69,8 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int 		*ft_sort_int_tab(int *tab, int size);
+void		clean_free(char **str);
+int			get_next_line(int fd, char **line);
 
 #endif
