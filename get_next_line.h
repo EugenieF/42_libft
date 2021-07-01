@@ -7,9 +7,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE 
 # define BUFFER_SIZE 4096
-# endif
 
 int		get_next_line(int fd, char **line);
 

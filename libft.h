@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:19:42 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/20 14:19:44 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:39:06 by EugenieFran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef int  t_bool;
+typedef int	t_bool;
 
 typedef struct s_list
 {
@@ -47,7 +47,7 @@ size_t		ft_strlcpy(char *dest, const char *src, size_t dst_size);
 size_t		ft_strlcat(char *dest, const char *src, size_t dst_size);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
-long    	ft_atoi_with_pointer(char **str);
+long		ft_atoi_with_pointer(char **str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -69,7 +69,7 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int 		*ft_sort_int_tab(int *tab, int size);
+int			*ft_sort_int_tab(int *tab, int size);
 void		clean_free(char **str);
 int			get_next_line(int fd, char **line);
 

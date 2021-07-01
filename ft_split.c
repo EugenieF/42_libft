@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:28:58 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/21 19:11:46 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:34:25 by EugenieFran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int  nb_words(char const *s, char c)
+static int	nb_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ static int  nb_words(char const *s, char c)
 	return (count);
 }
 
-static int  get_memory_string(char const *s, char c, char **strs, int i)
+static int	get_memory_string(char const *s, char c, char **strs, int i)
 {
 	int	j;
 	int	size;
