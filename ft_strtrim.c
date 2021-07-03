@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: efrancon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:31:07 by efrancon          #+#    #+#             */
-/*   Updated: 2021/05/21 18:22:11 by efrancon         ###   ########.fr       */
+/*   Updated: 2021/07/03 11:18:04 by EugenieFran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	if (s1[start] == '\0')
 		return (ft_strdup(""));
-	dest = (char *)malloc(sizeof(char) * (end - start + 2));
+	dest = (char *)ft_calloc(1, sizeof(char) * (end - start + 2));
 	if (!dest)
 		return (NULL);
 	while (start <= end)

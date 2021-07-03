@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: efrancon <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 09:25:34 by efrancon          #+#    #+#              #
-#    Updated: 2021/05/21 10:35:08 by efrancon         ###   ########.fr        #
+#    Updated: 2021/07/02 23:55:41 by EugenieFran      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_isspace.c ft_sort_int_tab.c ft_atoi_with_pointer.c clean_free.c \
 			ft_lstnew.c  ft_lstsize.c ft_lstlast.c ft_lstdelone.c ft_lstclear.c \
 			ft_lstadd_front.c ft_lstadd_back.c ft_lstiter.c ft_lstmap.c \
-			get_next_line.c
+			get_next_line.c get_nb_of_substrings.c free_double_char_array.c \
+			ft_strjoin_and_free.c
 
 OBJS		= ${SRCS:.c=.o}
 

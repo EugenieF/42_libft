@@ -6,7 +6,7 @@
 /*   By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:28:58 by efrancon          #+#    #+#             */
-/*   Updated: 2021/07/01 16:34:25 by EugenieFran      ###   ########.fr       */
+/*   Updated: 2021/07/03 11:17:28 by EugenieFran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	get_memory_string(char const *s, char c, char **strs, int i)
 	size = 0;
 	while (s[j] && s[j] != c)
 		j++;
-	strs[i] = (char *)malloc(sizeof(char) * (j + 1));
+	strs[i] = (char *)ft_calloc(1, sizeof(char) * (j + 1));
 	if (!strs[i])
 	{
 		while (size < i)
@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	len = nb_words(s, c);
-	strs = (char **)malloc(sizeof(char *) * (len + 1));
+	strs = (char **)ft_calloc(1, sizeof(char *) * (len + 1));
 	if (!strs)
 		return (NULL);
 	while (i < len)

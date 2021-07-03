@@ -1,34 +1,6 @@
 #include "get_next_line.h"
 #include "libft.h"
 
-void	init_str(char **str)
-{
-	free(*str);
-	*str = NULL;
-}
-
-char	*ft_strjoin_free(char *s1, char *s2)
-{
-	size_t	i;
-	size_t	length;
-	char	*dest;
-
-	if (!s1)
-		return (ft_strdup(s2));
-	length = ft_strlen(s1) + ft_strlen(s2);
-	dest = (char *)malloc(sizeof(char) * (length + 1));
-	if (!dest)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		dest[i] = s1[i];
-	while (*s2)
-		dest[i++] = *s2++;
-	dest[i] = '\0';
-	init_str(&s1);
-	return (dest);
-}
-
 void	move_text_cursor(char *text, int offset)
 {
 	size_t	length;
@@ -75,7 +47,7 @@ int	get_next_line(int fd, char **line)
 	buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buff || !line || fd < 0 || read(fd, buff, 0) < 0 || BUFFER_SIZE <= 0)
 	{
-		init_str(&buff);
+		clean_free(&buff);
 		return (-1);
 	}
 	ret = 1;
@@ -83,13 +55,13 @@ int	get_next_line(int fd, char **line)
 	{
 		ret = read(fd, buff, BUFFER_SIZE);
 		buff[ret] = '\0';
-		text = ft_strjoin_free(text, buff);
+		text = ft_strjoin_and_free(text, buff);
 		if (ft_strchr(text, '\n'))
 			break ;
 	}
-	init_str(&buff);
+	clean_free(&buff);
 	if (text && fill_line(line, text))
 		return (1);
-	init_str(&text);
+	clean_free(&text);
 	return (0);
 }

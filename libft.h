@@ -6,7 +6,7 @@
 /*   By: EugenieFrancon <EugenieFrancon@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:19:42 by efrancon          #+#    #+#             */
-/*   Updated: 2021/07/01 16:39:06 by EugenieFran      ###   ########.fr       */
+/*   Updated: 2021/07/02 23:55:22 by EugenieFran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,8 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int			*ft_sort_int_tab(int *tab, int size);
 void		clean_free(char **str);
 int			get_next_line(int fd, char **line);
+char		*ft_strjoin_and_free(char *s1, char *s2);
+int			get_nb_of_substrings(char **str);
+void		free_double_char_array(char **array);
 
 #endif
