@@ -31,13 +31,11 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-INCLUDE		= libft.h
-
 RM			= rm -f
 
 
 .c.o:
-				@${CC} ${CFLAGS} -I${INCLUDE} -c $< -o ${<:.c=.o}
+				@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 				@echo "Libft -> linking : $@"
