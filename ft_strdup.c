@@ -18,6 +18,8 @@ char	*ft_strdup(const char *s1)
 	int		s1_len;
 	char	*copy;
 
+    if (!s1)
+        return (NULL);
 	i = 0;
 	s1_len = 0;
 	while (s1[s1_len])
